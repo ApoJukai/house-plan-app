@@ -11,11 +11,17 @@
 
     <div class="ui-panel">
         <h2>Design Tools</h2>
+        
         <div class="tool-section">
-            <h3>2D Floor Plan</h3>
+            <h3>Mode</h3>
             <button id="draw-wall-btn" class="active-tool">Draw Wall</button>
             <button id="select-btn">Select / Move</button>
-            <button id="clear-btn" class="danger-btn">Clear Canvas</button>
+        </div>
+
+        <div class="tool-section">
+            <h3>Fixtures (Draggable)</h3>
+            <button id="add-door-btn">Add Door</button>
+            <button id="add-window-btn">Add Window</button>
         </div>
 
         <div class="tool-section">
@@ -24,6 +30,8 @@
             <label><input type="checkbox" id="layer-elec"> Electrical</label>
             <label><input type="checkbox" id="layer-plumb"> Plumbing</label>
         </div>
+        
+        <button id="clear-btn" class="danger-btn" style="width: 100%; margin-top: 10px;">Clear Canvas</button>
     </div>
 
     <canvas id="main-canvas"></canvas>
