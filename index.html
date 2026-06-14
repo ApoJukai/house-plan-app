@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div class="ui-panel">
+    <div class="ui-panel" id="main-panel">
         <h2>Design Tools</h2>
         
         <div class="tool-section">
@@ -38,6 +38,14 @@
         </div>
         
         <button id="clear-btn" class="danger-btn" style="width: 100%; margin-top: 10px;">Clear Canvas</button>
+    </div>
+
+    <div class="ui-panel script-panel">
+        <h2>Automation Script</h2>
+        <div class="tool-section">
+            <textarea id="script-input" rows="6" placeholder="wall 100 100 400 100&#10;door 250 100&#10;outlet 250 150"></textarea>
+            <button id="run-script-btn" style="background: #34c759; color: white; border-color: #34c759;">Run Script</button>
+        </div>
     </div>
 
     <canvas id="main-canvas"></canvas>
