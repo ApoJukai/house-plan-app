@@ -1,24 +1,14 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
 body {
     background-color: #e5e5ea;
-    background-image: 
-      linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
     background-size: 20px 20px;
     overflow: hidden; 
 }
 
 .ui-panel {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 280px;
     background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -29,21 +19,21 @@ body {
     z-index: 10; 
 }
 
+/* Position the main tools on the left */
+#main-panel { top: 20px; left: 20px; width: 280px; }
+
+/* Position the script panel on the right */
+.script-panel { top: 20px; right: 20px; width: 320px; }
+
 h2 { font-size: 1.2rem; color: #1c1c1e; margin-bottom: 20px; font-weight: 600; }
 h3 { font-size: 0.85rem; color: #8e8e93; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
 
 .tool-section { margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
 
 button {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #d1d1d6;
-    padding: 10px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    color: #1c1c1e;
-    transition: all 0.2s ease;
-    text-align: left;
+    background: rgba(255, 255, 255, 0.9); border: 1px solid #d1d1d6; padding: 10px 16px;
+    border-radius: 8px; cursor: pointer; font-size: 0.95rem; color: #1c1c1e;
+    transition: all 0.2s ease; text-align: left;
 }
 
 button:hover { background: #ffffff; border-color: #007aff; }
@@ -52,3 +42,11 @@ button.danger-btn { color: #ff3b30; text-align: center; font-weight: 600; backgr
 button.danger-btn:hover { background: #ff3b30; color: white; border-color: #ff3b30; }
 
 label { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; color: #3a3a3c; cursor: pointer; }
+
+/* NEW: Textarea styling */
+textarea {
+    width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d1d1d6;
+    background: rgba(255, 255, 255, 0.8); resize: vertical; font-family: monospace;
+    font-size: 0.9rem; margin-bottom: 10px; outline: none;
+}
+textarea:focus { border-color: #007aff; background: #ffffff; }
