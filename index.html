@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Plan Architect</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+</head>
+<body>
 
+    <div class="ui-panel">
+        <h2>Design Tools</h2>
+        <div class="tool-section">
+            <h3>2D Floor Plan</h3>
+            <button id="draw-wall-btn" class="active-tool">Draw Wall</button>
+            <button id="select-btn">Select / Move</button>
+            <button id="clear-btn" class="danger-btn">Clear Canvas</button>
+        </div>
+
+        <div class="tool-section">
+            <h3>Layers</h3>
+            <label><input type="checkbox" checked id="layer-arch"> Architecture</label>
+            <label><input type="checkbox" id="layer-elec"> Electrical</label>
+            <label><input type="checkbox" id="layer-plumb"> Plumbing</label>
+        </div>
+    </div>
+
+    <canvas id="main-canvas"></canvas>
+
+    <script src="app.js"></script>
+</body>
+</html>
