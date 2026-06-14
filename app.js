@@ -100,22 +100,36 @@ document.getElementById('add-window-btn').addEventListener('click', () => { spaw
 document.getElementById('add-outlet-btn').addEventListener('click', () => { spawnFixture('outlet', canvas.width/2, canvas.height/2); btnSelect.click(); });
 document.getElementById('add-pipe-btn').addEventListener('click', () => { spawnFixture('pipe', canvas.width/2, canvas.height/2); btnSelect.click(); });
 
-// --- SCRIPT PARSER ENGINE (NEW) ---
+// --- SCRIPT PARSER ENGINE (UPDATED & BULLETPROOF) ---
 document.getElementById('run-script-btn').addEventListener('click', () => {
+    console.log("▶️ Run Script button clicked!"); // This will show in your developer console
+    
     const scriptText = document.getElementById('script-input').value;
     const lines = scriptText.split('\n'); // Split into individual lines
 
-    lines.forEach(line => {
-        const parts = line.trim().split(/\s+/); // Split by spaces
+    lines.forEach((line, index) => {
+        // 1. Skip completely empty lines so it doesn't break
+        if (!line.trim()) return; 
+
+        // 2. Split the line by spaces
+        const parts = line.trim().split(/\s+/); 
         const command = parts[0].toLowerCase();
 
+        console.log(`Processing line ${index + 1}: ${command}`, parts);
+
+        // 3. Execute the commands
         if (command === 'wall' && parts.length === 5) {
             spawnWall(parseFloat(parts[1]), parseFloat(parts[2]), parseFloat(parts[3]), parseFloat(parts[4]));
         } 
         else if (['door', 'window', 'outlet', 'pipe'].includes(command) && parts.length === 3) {
             spawnFixture(command, parseFloat(parts[1]), parseFloat(parts[2]));
+        } else {
+            // Warn us if there is a typo in the script!
+            console.warn(`⚠️ Could not understand line ${index + 1}: "${line}"`);
         }
     });
+    
+    console.log("✅ Script execution complete!");
 });
 
 // --- Mouse Drawing Logic ---
