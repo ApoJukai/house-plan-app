@@ -75,8 +75,17 @@ canvas.on('mouse:down', function(o) {
 canvas.on('mouse:move', function(o) {
     if (!isDrawing) return;
     let pointer = canvas.getPointer(o.e);
-    // Update the end point of the line to follow the mouse
+    
+    // Update line coordinates
     line.set({ x2: pointer.x, y2: pointer.y });
+    
+    // Calculate Length (pixels)
+    let dx = pointer.x - line.x1;
+    let dy = pointer.y - line.y1;
+    let lengthInPixels = Math.sqrt(dx * dx + dy * dy);
+    
+    // TODO: Render 'lengthInPixels' as text on the canvas
+    
     canvas.renderAll();
 });
 
